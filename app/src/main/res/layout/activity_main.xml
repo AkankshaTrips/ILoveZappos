@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:weightSum="1"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:id="@+id/zappos"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/zappos" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/editSearch"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_toStartOf="@+id/searchButton"
+                android:gravity="center"
+                android:hint="SEARCH"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/searchButton"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignBottom="@+id/editSearch"
+                android:layout_alignParentEnd="true"
+                android:layout_gravity="right"
+                android:background="#f43873"
+                android:onClick="displayProduct"
+                android:text="OK"
+                android:textSize="15dp" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/brandName"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/thumbnailImageUrl"
+            android:layout_below="@+id/thumbnailImageUrl"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/thumbnailImageUrl"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_alignEnd="@+id/price"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/linearLayout"
+        android:layout_marginStart="2dp"
+        android:onClick="clickImage"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/thumbnailImageUrl"
+        android:layout_alignStart="@+id/thumbnailImageUrl"
+        android:layout_below="@+id/thumbnailImageUrl"
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/originalPrice"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_above="@+id/buyNow"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/price"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:textColor="#000000"
+        android:textSize="13dp" />
+
+    <TextView
+        android:id="@+id/percentOff"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/price"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingRight="20dp"
+        android:textColor="#000000"
+        android:textSize="13dp"
+        android:layout_below="@+id/productName"
+        android:layout_alignParentEnd="true" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/plus"
+        android:onClick="animations"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_below="@+id/price"
+        android:layout_alignEnd="@+id/price" />
+
+</RelativeLayout>
