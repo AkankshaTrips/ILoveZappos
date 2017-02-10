@@ -57,11 +57,15 @@ public class MainActivity extends ActionBarActivity {
     public void convertToJson(String jsonString) {
         JSONParser parser = new JSONParser();
         try {
+            //covert to json objects
             JSONObject json = (JSONObject) parser.parse(jsonString);
             org.json.JSONObject jsonObject = new org.json.JSONObject(jsonString);
+
+            //convert to json array
             JSONArray jsonArray = jsonObject.getJSONArray("results");
             org.json.JSONObject iterator = jsonArray.getJSONObject(0);
 
+            //the different entinites of a product are seperated
             brandName(iterator);
             thumbnailImageUrl(iterator);
             originalPrice(iterator);
@@ -76,6 +80,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the brandName to a textView
     private void brandName(org.json.JSONObject iterator) {
         try {
             String brandName = (String)iterator.get("brandName");
@@ -87,6 +92,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the thumnnailImageUrl to a imageView
     private void thumbnailImageUrl(org.json.JSONObject iterator) {
         try {
             String thumbnailImageUrl = (String) iterator.get("thumbnailImageUrl");
@@ -98,6 +104,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the originalPrice to a textView
     private void originalPrice(org.json.JSONObject iterator) {
         try {
             String originalPrice = (String)iterator.get("originalPrice");
@@ -109,6 +116,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the price to a textView
     private void price(org.json.JSONObject iterator) {
         try {
             String price = (String)iterator.get("price");
@@ -120,6 +128,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the productName to a textView
     private void productName(org.json.JSONObject iterator) {
         try {
             String productName = (String)iterator.get("productName");
@@ -131,6 +140,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //sends the percentOff to a textView
     private void percentOff(org.json.JSONObject iterator) {
         try {
             String percentOff = (String)iterator.get("percentOff");
@@ -142,6 +152,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
+    //adds animations to the image
     public void animations (View view) {
         ImageView imageView = (ImageView) findViewById(R.id.thumbnailImageUrl);
         Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anime);
@@ -189,6 +200,7 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(String jsonString) {
+            //sends the string from the api to the method
             convertToJson(jsonString);
         }
     }
